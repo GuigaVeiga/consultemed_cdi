@@ -19,13 +19,13 @@
 		<nav aria-label="breadcrumb">
 		  <ol class="breadcrumb">
 		    <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/admin/dashboard">Home</a></li>
-		    <li class="breadcrumb-item active" aria-current="page">Contatos</li>
+		    <li class="breadcrumb-item active" aria-current="page">Medicos</li>
 		  </ol>
 		</nav>
 		 
 		<div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Novo Contato</h3>
+              <h3 class="box-title">Novo Medico</h3>
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
@@ -33,39 +33,44 @@
               </div>
             </div>
             
-            <form role="form" method="POST" action="${pageContext.request.contextPath}/admin/contatos?action=list">
+            <form role="form" method="POST" action="${pageContext.request.contextPath}/admin/medicos?action=list">
               <div class="box-body">
               
               	<div class="form-group col-md-12">
-					<input type="hidden" name="id" value="${contato.id}" readonly="readonly" required="required" class="form-control" id="id" placeholder="Digite o nome">
+					<input type="hidden" name="id" value="${medico.id}" readonly="readonly" required="required" class="form-control" id="id" placeholder="Digite o nome">
 				</div>
               
                 <div class="form-group">
                   <label for="nome">Nome</label>
-                  <input type="nome" name="nome" class="form-control" value="${contato.nome}" id="nome" placeholder="Informe o nome">
+                  <input type="nome" name="nome" class="form-control" value="${medico.nomeMedico}" id="nome" placeholder="Informe o nome">
                 </div>
                 
                 <div class="form-group">
-                  <label for="email">Email</label>
-                  <input type="email" name="email" class="form-control" value="${contato.email}" id="email" placeholder="Informe o email">
+                  <label for="crm">CRM</label>
+                  <input type="crm" name="crm" class="form-control" value="${medico.crm}" id="crm" placeholder="Informe o seu CRM">
+                </div>
+                
+                <div class="form-group">
+                  <label for="especialidade">Especialidade</label>
+                  <input type="especialidade" name="especialidade" class="form-control" value="${medico.especialidade}" id="especialidade" placeholder="Informe a especialidade">
                 </div>
                 
                 <div class="form-group">
                   <label for="telefone">Telefone</label>
-                  <input type="telefone" name="telefone" class="form-control" value="${contato.telefone}" id="telefone" placeholder="Informe o email">
+                  <input type="telefone" name="telefone" class="form-control" value="${medico.telefone}" id="telefone" placeholder="Informe o telefone">
                 </div>
                 
               </div>
 
               <div class="box-footer">
-					<c:if test="${contato.id != null}">
+					<c:if test="${medico.id != null}">
 						<button type="submit" class="btn btn-warning">Editar</button>
 	            	</c:if>
 					
-					<c:if test="${contato.id == null}">
+					<c:if test="${medico.id == null}">
 						<button name="enviar" type="submit" class="btn btn-primary">Salvar</button>&nbsp;&nbsp;&nbsp;&nbsp;
 					</c:if>
-					<a href="${pageContext.request.contextPath}/admin/contatos?action=list" class="btn btn-sm btn-default">Contatos</a>&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="${pageContext.request.contextPath}/admin/medicos?action=list" class="btn btn-sm btn-default">Medicos</a>&nbsp;&nbsp;&nbsp;&nbsp;
               </div>
             </form>
       	</div>
